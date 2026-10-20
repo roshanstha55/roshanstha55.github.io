@@ -1,0 +1,16 @@
+:root{--bg:#FFF8EF;--surface:#FFFFFF;--text:#3B2A4A;--soft:#7A6A86;--accent:#7B4DFF;--gold:#FFB020}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 "Nunito",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:720px;margin:0 auto;padding:32px 20px 64px}
+h1,h2{font-family:"Fredoka","Nunito",system-ui,sans-serif;line-height:1.2}
+h1{font-size:34px;margin:8px 0 4px;color:var(--accent)}
+h2{font-size:22px;margin:32px 0 8px}
+.card{background:var(--surface);border-radius:24px;padding:20px 24px;box-shadow:0 8px 24px rgba(59,42,74,.08)}
+.muted{color:var(--soft)}
+a{color:var(--accent);font-weight:700}
+.hero{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.hero img{width:112px;height:112px;border-radius:26px;box-shadow:0 10px 30px rgba(123,77,255,.25)}
+.pill{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:12px 22px;border-radius:999px;margin:6px 8px 6px 0}
+.pill.soft{background:var(--surface);color:var(--accent);border:2px solid var(--accent)}
+ul{padding-left:22px}
+footer{margin-top:40px;font-size:15px;color:var(--soft)}
