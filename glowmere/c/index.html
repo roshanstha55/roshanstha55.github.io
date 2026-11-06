@@ -4,43 +4,40 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Glowmere – A friend's challenge</title>
+<title>Glowmere: Logic Puzzles – level challenge</title>
+<meta name="description" content="Glowmere is a cosy logic puzzle game by Vexel Interactive.">
 <link rel="icon" href="../icon-512.png">
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <main>
-<!--
-  Friend score challenge (v1.1). With Glowmere installed, Android opens these links straight in the app
-  (App Links, verified by /.well-known/assetlinks.json) and this page is never shown. Otherwise it tries
-  the app once more (intent with the glowmere:// scheme) and falls back to the Play Store.
-  Values from the link are checked and only ever written as text (never as HTML).
--->
-<h1>A friend's challenge</h1>
-<div class="card">
-  <p id="line"><strong>Can you light the way home faster?</strong></p>
+<div class="hero">
+  <img src="../icon-512.png" alt="Glowmere app icon">
+  <div>
+    <h1>Glowmere</h1>
+    <p class="muted">A cosy logic puzzle game by Vexel Interactive.</p>
+  </div>
 </div>
-<p><a id="open" class="button" href="#">Open in Glowmere</a></p>
-<p><a id="store" href="https://play.google.com/store/apps/details?id=com.vexelinteractive.glowmere">Get Glowmere on Google Play</a></p>
-<footer><a href="../privacy.html">Privacy</a> · <a href="../terms.html">Terms</a></footer>
+<div class="card" style="margin-top:24px">
+  <p id="line"><strong>Can you beat this Glowmere level?</strong></p>
+  <p>Place one light in every coloured patch, row and column, and never let two lights touch.</p>
+  <p><a href="https://play.google.com/store/apps/details?id=com.vexelinteractive.glowmere">Get Glowmere on Google Play</a></p>
+</div>
+<footer><a href="../privacy.html">Privacy</a> · <a href="../terms.html">Terms</a> · Contact: <a href="mailto:roshanstha55@gmail.com">roshanstha55@gmail.com</a><br>© 2026 Vexel Interactive</footer>
 </main>
 <script>
+// Reads only l (level, 1–300) and s (score, up to 6 digits). Anything else keeps the generic line.
+// No redirects, no other parameters, no HTML from the link (textContent only).
 (function () {
-  var STORE = 'https://play.google.com/store/apps/details?id=com.vexelinteractive.glowmere';
-  var q = new URLSearchParams(location.search);
-  var whole = function (v, min, max) { return /^\d{1,7}$/.test(v || '') && +v >= min && +v <= max ? +v : null; };
-  var level = whole(q.get('l'), 1, 300), score = whole(q.get('s'), 0, 99999);
-  var name = (q.get('n') || '').replace(/[^A-Za-z0-9 '\-_.]/g, '').trim().slice(0, 16);
-  if (level === null || score === null) return; // not a challenge link: just the store button
-  var shown = String(score).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  var q = new URLSearchParams(window.location.search);
+  var num = function (v, max) { return /^\d{1,6}$/.test(v || '') && Number(v) <= max ? Number(v) : null; };
+  var level = num(q.get('l'), 300), score = num(q.get('s'), 999999);
+  if (level === null || level < 1 || score === null) return;
+  var strong = document.createElement('strong');
+  strong.textContent = 'Score ' + score.toLocaleString('en-US') + ' on level ' + level + '. Can you beat it?';
   var line = document.getElementById('line');
-  line.textContent = (name ? name + ' scored ' : 'Your friend scored ') + shown + ' on level ' + level + '. Can you beat it?';
-  var params = 'l=' + level + '&s=' + score + (name ? '&n=' + encodeURIComponent(name) : '');
-  var android = /Android/i.test(navigator.userAgent);
-  var intent = 'intent://challenge?' + params + '#Intent;scheme=glowmere;package=com.vexelinteractive.glowmere;S.browser_fallback_url=' + encodeURIComponent(STORE) + ';end';
-  var open = document.getElementById('open');
-  open.href = android ? intent : STORE;
-  if (android) location.replace(intent);
+  line.textContent = '';
+  line.appendChild(strong);
 })();
 </script>
 </body>
