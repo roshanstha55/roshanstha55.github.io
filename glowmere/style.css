@@ -14,3 +14,11 @@ a{color:var(--accent);font-weight:700}
 .pill.soft{background:var(--surface);color:var(--accent);border:2px solid var(--accent)}
 ul{padding-left:22px}
 footer{margin-top:40px;font-size:15px;color:var(--soft)}
+h3{font-size:19px;margin:24px 0 6px;font-family:"Fredoka","Nunito",system-ui,sans-serif}
+ol{padding-left:24px}
+.lead{font-size:19px}
+figure{margin:16px 0 8px;text-align:center}
+figure .board{max-width:100%;height:auto}
+figcaption{font-size:15px;color:var(--soft);margin-top:6px}
+.faq h2{font-size:20px;margin:24px 0 4px}
+.faq h2:first-child{margin-top:4px}
