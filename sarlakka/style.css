@@ -1,0 +1,21 @@
+/* Sarlakka page styles: the app's highway-board green on its ground grey. Static, no web fonts loaded. */
+:root{--bg:#EEF1F4;--surface:#FFFFFF;--text:#15181C;--soft:#5B6570;--accent:#0B6E4F;--line:#DDE2E8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 "Mukta","Noto Sans Devanagari",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:720px;margin:0 auto;padding:32px 20px 64px}
+h1,h2,h3{line-height:1.25}
+h1{font-size:34px;margin:8px 0 4px;color:var(--accent)}
+h2{font-size:22px;margin:32px 0 8px}
+h3{font-size:19px;margin:24px 0 6px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:20px 24px}
+.notice{background:var(--surface);border:3px solid var(--accent);border-radius:20px;padding:18px 22px;margin-top:24px}
+.notice p{margin:6px 0}
+.muted{color:var(--soft)}
+a{color:var(--accent);font-weight:700;overflow-wrap:anywhere}
+.hero{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.hero img{width:112px;height:112px;border-radius:26px}
+.pill{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:12px 22px;border-radius:999px;margin:6px 8px 6px 0}
+.pill.soft{background:var(--surface);color:var(--accent);border:2px solid var(--accent)}
+ul{padding-left:22px}
+li{margin:4px 0}
+footer{margin-top:40px;font-size:15px;color:var(--soft)}
